@@ -18,7 +18,7 @@ public class TestWebApplicationFactory<TProgram> : WebApplicationFactory<TProgra
     {
         await _mongoContainer.StartAsync();
         Environment.SetEnvironmentVariable("MONGODBSETTINGS__CONNECTIONSTRING", _mongoContainer.GetConnectionString());
-        Environment.SetEnvironmentVariable("MONGODBSETTINGS__PRODUCTTESTDB", "ProductTestDb");
+        Environment.SetEnvironmentVariable("MONGODBSETTINGS__DATABASENAME", "ProductTestDb");
     }
 
     protected override void ConfigureWebHost(IWebHostBuilder builder)

@@ -30,7 +30,15 @@ public class GraphQLIntegrationTests : IClassFixture<TestWebApplicationFactory<P
         var url = _httpClient.BaseAddress + "graphql";
 
         // Create a new product
-        var mutationBody = $@"mutation{{addProduct(price:{price},name:""{name}"",id:""{id}""){{id,name,price}}}}";
+        var mutationBody = 
+            $@"mutation {{ 
+                addProduct
+                (
+                    price:{price},
+                    name:""{name}"",
+                    id:""{id}""
+                ) {{ id, name, price }}
+            }}";
 
         var mutationObject = new
         {
